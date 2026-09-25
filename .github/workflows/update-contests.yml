@@ -22,7 +22,7 @@ jobs:
         run: pip install requests beautifulsoup4
 
       - name: Run scraper
-        run: python contest_scraper.py
+        run: python contest_tracker.py
 
       - name: Commit contests.json
         run: |
