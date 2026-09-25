@@ -1,0 +1,46 @@
+name: 自动更新比赛信息
+
+on:
+  schedule:
+    # 每天北京时间 9:00 运行 (UTC 时间 1:00)
+    - cron: '0 1 * * *'
+    # 每天北京时间 15:00 运行 (UTC 时间 7:00)
+    - cron: '0 7 * * *'
+    # 每天北京时间 21:00 运行 (UTC 时间 13:00)
+    - cron: '0 13 * * *'
+  workflow_dispatch:  # 允许在 Actions 页面手动点击运行
+
+permissions:
+  contents: write   # 给 Actions 权限提交代码
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 步骤 1: 拉取仓库代码
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      # 步骤 2: 安装 Python 环境
+      - name: 设置 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # 步骤 3: 安装依赖
+      - name: 安装 requests
+        run: pip install requests
+
+      # 步骤 4: 运行抓取脚本
+      - name: 抓取比赛数据
+        run: |
+          python contest_tracker.py --html index.html -u 30 -r 7
+          echo "更新时间: $(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S')" > last_update.txt
+
+      # 步骤 5: 自动提交更改
+      - name: 提交更新
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🤖 自动更新比赛信息 [skip ci]"
+          file_pattern: "index.html last_update.txt"
