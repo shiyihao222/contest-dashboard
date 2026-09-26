@@ -1,27 +1,6 @@
 [
   {
     "source": "AtCoder",
-    "name": "UNICORNProgramming Contest2026(AtCoder Beginner Contest 477)",
-    "start": "2026-09-26T12:00+00:00",
-    "duration_min": 100,
-    "url": "https://atcoder.jp/contests/abc477"
-  },
-  {
-    "source": "Codeforces",
-    "name": "Codeforces Round 1124 (Div. 1)",
-    "start": "2026-09-26T14:35+00:00",
-    "duration_min": 150,
-    "url": "https://codeforces.com/contest/2268"
-  },
-  {
-    "source": "Codeforces",
-    "name": "Codeforces Round 1124 (Div. 2)",
-    "start": "2026-09-26T14:35+00:00",
-    "duration_min": 150,
-    "url": "https://codeforces.com/contest/2269"
-  },
-  {
-    "source": "AtCoder",
     "name": "AtCoder Grand Contest 078",
     "start": "2026-09-27T12:00+00:00",
     "duration_min": 210,
