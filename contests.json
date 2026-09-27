@@ -1,12 +1,5 @@
 [
   {
-    "source": "AtCoder",
-    "name": "AtCoder Grand Contest 078",
-    "start": "2026-09-27T12:00+00:00",
-    "duration_min": 210,
-    "url": "https://atcoder.jp/contests/agc078"
-  },
-  {
     "source": "牛客",
     "name": "牛客周赛 Round 163",
     "start": "2026-09-27T19:00",
