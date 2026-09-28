@@ -84,6 +84,20 @@
     "url": "https://atcoder.jp/contests/aalc001"
   },
   {
+    "source": "AtCoder",
+    "name": "AtCoder Heuristic Contest 073",
+    "start": "2026-10-17T06:00+00:00",
+    "duration_min": 240,
+    "url": "https://atcoder.jp/contests/ahc073"
+  },
+  {
+    "source": "AtCoder",
+    "name": "AtCoder Beginner Contest 480",
+    "start": "2026-10-17T12:00+00:00",
+    "duration_min": 100,
+    "url": "https://atcoder.jp/contests/abc480"
+  },
+  {
     "source": "Codeforces",
     "name": "Codeforces Round (Div. 1 + Div. 2)",
     "start": "2026-10-17T14:35+00:00",
