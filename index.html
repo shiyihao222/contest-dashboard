@@ -2,164 +2,345 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>比赛信息看板</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>比赛日历 · Contest Tracker</title>
 <style>
-  :root { --bg:#0f172a; --panel:#1e293b; --text:#e2e8f0; --muted:#94a3b8; }
-  * { box-sizing:border-box; }
-  body { margin:0; background:var(--bg); color:var(--text);
-         font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif; }
-  header { padding:24px 20px 8px; max-width:960px; margin:auto; }
-  h1 { font-size:22px; margin:0 0 4px; }
-  .sub { color:var(--muted); font-size:13px; }
-  .filters { max-width:960px; margin:12px auto; padding:0 20px; display:flex; gap:8px; flex-wrap:wrap; }
-  .chip { border:1px solid #334155; background:var(--panel); color:var(--text);
-          padding:6px 14px; border-radius:999px; cursor:pointer; font-size:13px; }
-  .chip.active { background:#38bdf8; color:#0f172a; border-color:#38bdf8; font-weight:600; }
-  main { max-width:960px; margin:auto; padding:0 20px 60px; }
-  .day-title { margin:22px 0 10px; font-weight:600; color:#cbd5e1; }
-  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:12px; }
-  .card { background:var(--panel); border:1px solid #334155; border-radius:12px; padding:14px 16px; }
-  .badge { display:inline-block; font-size:12px; padding:2px 10px; border-radius:999px; margin-bottom:8px; }
-  .card-name { font-size:15px; font-weight:600; margin-bottom:6px; }
-  .card-name a { color:var(--text); text-decoration:none; }
-  .card-name a:hover { color:#38bdf8; text-decoration:underline; }
-  .card-meta { font-size:12px; color:var(--muted); }
-  .countdown { margin-top:8px; font-size:13px; color:#38bdf8; font-variant-numeric:tabular-nums; }
-  .countdown.live { color:#f87171; font-weight:600; }
-  h2 { font-size:17px; margin:34px 0 10px; }
-  table { width:100%; border-collapse:collapse; background:var(--panel); border-radius:12px; overflow:hidden; font-size:13px; }
-  th, td { padding:10px 14px; text-align:left; border-bottom:1px solid #334155; }
-  th { color:var(--muted); font-weight:500; }
-  a { color:#38bdf8; }
-  .dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:6px; }
-  .empty { color:var(--muted); padding:16px; }
-  tr:hover td { background:#263548; }
-  footer { max-width:960px; margin:auto; padding:0 20px 30px; color:var(--muted); font-size:12px; }
+  :root {
+    --bg: #0d1117; --panel: #161b22; --border: #30363d;
+    --text: #e6edf3; --dim: #8b949e;
+    --cf: #ff7043; --atc: #4dabf7; --nk: #00e676;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    min-height: 100vh; padding: 20px;
+  }
+  .container { max-width: 1200px; margin: 0 auto; }
+  header { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 8px; }
+  h1 { font-size: 22px; }
+  .meta { color: var(--dim); font-size: 13px; }
+  .view-toggle { margin-left: auto; display: flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .view-toggle button {
+    background: var(--panel); color: var(--dim); border: none; padding: 6px 18px;
+    font-size: 13px; cursor: pointer;
+  }
+  .view-toggle button.active { background: #1f6feb; color: #fff; }
+  .legend { display: flex; gap: 16px; margin: 10px 0 16px; font-size: 13px; color: var(--dim); flex-wrap: wrap; }
+  .legend span::before {
+    content: ""; display: inline-block; width: 10px; height: 10px;
+    border-radius: 2px; margin-right: 6px; background: var(--c);
+  }
+
+  /* ===== 日历视图 ===== */
+  .calendar { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+  .weekday { text-align: center; color: var(--dim); font-size: 13px; padding: 6px 0; }
+  .day {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 8px; min-height: 108px; padding: 6px;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .day.past { opacity: .55; }
+  .day.today { border-color: #58a6ff; box-shadow: 0 0 0 1px #58a6ff inset; }
+  .day .num { font-size: 13px; color: var(--dim); }
+  .day.today .num { color: #58a6ff; font-weight: bold; }
+  .chip {
+    display: block; font-size: 12px; line-height: 1.35;
+    padding: 3px 6px; border-radius: 5px; text-decoration: none; color: var(--text);
+    background: rgba(255,255,255,.04);
+    border-left: 3px solid var(--c);
+    background: color-mix(in srgb, var(--c) 13%, transparent);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .chip:hover { background: rgba(255,255,255,.12); }
+  .chip .time { color: var(--dim); margin-right: 4px; font-variant-numeric: tabular-nums; }
+  .more { font-size: 12px; color: var(--dim); padding-left: 6px; }
+
+  /* ===== 列表视图 ===== */
+  .list { display: none; flex-direction: column; gap: 4px; }
+  .list.show { display: flex; }
+  .date-sep {
+    color: var(--dim); font-size: 13px; margin: 14px 0 4px;
+    border-bottom: 1px solid var(--border); padding-bottom: 4px;
+  }
+  .date-sep:first-child { margin-top: 0; }
+  .row {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--panel); border: 1px solid var(--border);
+    border-left: 3px solid var(--c);
+    border-radius: 8px; padding: 10px 14px; text-decoration: none; color: var(--text);
+  }
+  .row:hover { background: rgba(255,255,255,.06); }
+  .row .time-col { font-variant-numeric: tabular-nums; font-size: 14px; min-width: 52px; }
+  .row .src-tag {
+    font-size: 11px; padding: 2px 8px; border-radius: 10px;
+    border: 1px solid var(--c); color: var(--c); white-space: nowrap;
+    background: color-mix(in srgb, var(--c) 12%, transparent);
+  }
+  .row .name { flex: 1; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .row .countdown { color: var(--dim); font-size: 12px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .row.past { opacity: .5; }
+
+  /* ===== 待做题单 ===== */
+  .todo { margin-bottom: 18px; }
+  .todo-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 15px; }
+  .todo-header .count {
+    background: #1f6feb; color: #fff; font-size: 12px;
+    border-radius: 10px; padding: 1px 8px;
+  }
+  .todo-input { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+  .todo-input input {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 8px;
+    color: var(--text); padding: 8px 12px; font-size: 13px; outline: none;
+  }
+  .todo-input input:focus { border-color: #58a6ff; }
+  .todo-input .in-name { flex: 1; min-width: 140px; }
+  .todo-input .in-url { flex: 2; min-width: 200px; }
+  .todo-input button {
+    background: #1f6feb; color: #fff; border: none; border-radius: 8px;
+    padding: 8px 18px; font-size: 13px; cursor: pointer;
+  }
+  .todo-input button:hover { background: #388bfd; }
+  .todo-item {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 8px; padding: 8px 14px; margin-bottom: 6px;
+  }
+  .todo-item .t-name { flex: 1; font-size: 14px; color: var(--text); text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .todo-item .t-name:hover { color: #58a6ff; text-decoration: underline; }
+  .todo-item .t-host { color: var(--dim); font-size: 11px; border: 1px solid var(--border); border-radius: 10px; padding: 1px 8px; white-space: nowrap; }
+  .todo-item .t-done {
+    background: transparent; color: var(--nk); border: 1px solid var(--nk);
+    border-radius: 6px; padding: 3px 12px; font-size: 12px; cursor: pointer;
+  }
+  .todo-item .t-done:hover { background: var(--nk); color: #000; }
+  .todo-item .t-del {
+    background: transparent; color: var(--dim); border: none;
+    font-size: 14px; cursor: pointer; padding: 2px 6px;
+  }
+  .todo-item .t-del:hover { color: var(--cf); }
+  .todo-empty { color: var(--dim); font-size: 13px; padding: 6px 2px; }
+
+  .empty { color: var(--dim); text-align: center; padding: 40px; grid-column: 1 / -1; }
+  .error { color: var(--cf); text-align: center; padding: 40px; grid-column: 1 / -1; }
+  @media (max-width: 720px) {
+    body { padding: 10px; }
+    .day { min-height: 64px; }
+    .chip { font-size: 10px; padding: 2px 4px; }
+    .row .countdown { display: none; }
+  }
 </style>
+<base target="_blank">
 </head>
 <body>
-<header>
-  <h1>🏁 比赛信息看板</h1>
-  <div class="sub">Codeforces · AtCoder · 牛客 · 洛谷 ｜ 数据更新: 2026-09-25 16:39:00</div>
-</header>
-<div class="filters" id="filters">
-  <button class="chip active" data-p="ALL">全部</button>
-  <button class="chip" data-p="CF">Codeforces</button>
-  <button class="chip" data-p="ATC">AtCoder</button>
-  <button class="chip" data-p="NC">牛客</button>
-  <button class="chip" data-p="LG">洛谷</button>
+<div class="container">
+  <header>
+    <h1>📅 比赛日历</h1>
+    <span class="meta" id="meta">加载中…</span>
+    <div class="view-toggle">
+      <button id="btn-cal" class="active">日历</button>
+      <button id="btn-list">列表</button>
+    </div>
+  </header>
+  <div class="legend">
+    <span style="--c:var(--cf)">Codeforces</span>
+    <span style="--c:var(--atc)">AtCoder</span>
+    <span style="--c:var(--nk)">牛客</span>
+    <span style="--c:var(--dim)">过去 7 天（灰色淡化显示）</span>
+  </div>
+  <div class="todo">
+    <div class="todo-header">📋 待做题单 <span class="count" id="todo-count">0</span></div>
+    <div class="todo-input">
+      <input class="in-name" id="todo-name" type="text" placeholder="题单名称（如：CF 1600 分刷题）" maxlength="60">
+      <input class="in-url" id="todo-url" type="text" placeholder="题单链接（https://...）" maxlength="300">
+      <button id="todo-add">添加</button>
+    </div>
+    <div id="todo-list"></div>
+  </div>
+
+  <div class="calendar" id="calendar"></div>
+  <div class="list" id="list"></div>
 </div>
-<main>
-  <h2>⏳ 即将开始 (upcoming)</h2>
-  <div id="upcoming"><div class="day-title">📅 2026-09-25 周五 (1 场)</div>
-<div class="grid">
 
-      <div class="card" data-platform="CF" data-start="1790346900">
-        <div class="badge" style="color:#3b82f6;background:rgba(59,130,246,.15)">Codeforces</div>
-        <div class="card-name"><a href="https://codeforces.com/contest/2267" target="_blank">Codeforces Round 1123 (Div. 2)</a></div>
-        <div class="card-meta">🕒 2026-09-25 22:35 &nbsp;·&nbsp; ⏱ 2h15m</div>
-        <div class="countdown" data-start="1790346900"></div>
-      </div>
-</div>
-<div class="day-title">📅 2026-09-26 周六 (2 场)</div>
-<div class="grid">
-
-      <div class="card" data-platform="CF" data-start="1790433300">
-        <div class="badge" style="color:#3b82f6;background:rgba(59,130,246,.15)">Codeforces</div>
-        <div class="card-name"><a href="https://codeforces.com/contest/2268" target="_blank">Codeforces Round 1124 (Div. 1)</a></div>
-        <div class="card-meta">🕒 2026-09-26 22:35 &nbsp;·&nbsp; ⏱ 2h30m</div>
-        <div class="countdown" data-start="1790433300"></div>
-      </div>
-
-      <div class="card" data-platform="CF" data-start="1790433300">
-        <div class="badge" style="color:#3b82f6;background:rgba(59,130,246,.15)">Codeforces</div>
-        <div class="card-name"><a href="https://codeforces.com/contest/2269" target="_blank">Codeforces Round 1124 (Div. 2)</a></div>
-        <div class="card-meta">🕒 2026-09-26 22:35 &nbsp;·&nbsp; ⏱ 2h30m</div>
-        <div class="countdown" data-start="1790433300"></div>
-      </div>
-</div>
-<div class="day-title">📅 2026-10-10 周六 (1 场)</div>
-<div class="grid">
-
-      <div class="card" data-platform="CF" data-start="1791644700">
-        <div class="badge" style="color:#3b82f6;background:rgba(59,130,246,.15)">Codeforces</div>
-        <div class="card-name"><a href="https://codeforces.com/contest/2271" target="_blank">Codeforces Round (Div. 1 + Div. 2)</a></div>
-        <div class="card-meta">🕒 2026-10-10 23:05 &nbsp;·&nbsp; ⏱ 3h</div>
-        <div class="countdown" data-start="1791644700"></div>
-      </div>
-</div>
-<div class="day-title">📅 2026-10-12 周一 (2 场)</div>
-<div class="grid">
-
-      <div class="card" data-platform="CF" data-start="1791743700">
-        <div class="badge" style="color:#3b82f6;background:rgba(59,130,246,.15)">Codeforces</div>
-        <div class="card-name"><a href="https://codeforces.com/contest/2273" target="_blank">Codeforces Round (Div. 1)</a></div>
-        <div class="card-meta">🕒 2026-10-12 02:35 &nbsp;·&nbsp; ⏱ 2h30m</div>
-        <div class="countdown" data-start="1791743700"></div>
-      </div>
-
-      <div class="card" data-platform="CF" data-start="1791743700">
-        <div class="badge" style="color:#3b82f6;background:rgba(59,130,246,.15)">Codeforces</div>
-        <div class="card-name"><a href="https://codeforces.com/contest/2274" target="_blank">Codeforces Round (Div. 2)</a></div>
-        <div class="card-meta">🕒 2026-10-12 02:35 &nbsp;·&nbsp; ⏱ 2h30m</div>
-        <div class="countdown" data-start="1791743700"></div>
-      </div>
-</div>
-<div class="day-title">📅 2026-10-17 周六 (1 场)</div>
-<div class="grid">
-
-      <div class="card" data-platform="CF" data-start="1792247700">
-        <div class="badge" style="color:#3b82f6;background:rgba(59,130,246,.15)">Codeforces</div>
-        <div class="card-name"><a href="https://codeforces.com/contest/2261" target="_blank">Codeforces Round (Div. 1 + Div. 2)</a></div>
-        <div class="card-meta">🕒 2026-10-17 22:35 &nbsp;·&nbsp; ⏱ 3h</div>
-        <div class="countdown" data-start="1792247700"></div>
-      </div>
-</div></div>
-  <h2>📝 最近结束 (recent)</h2>
-  <table>
-    <thead><tr><th>平台</th><th>时间</th><th>比赛</th><th></th></tr></thead>
-    <tbody id="recent"><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-25 15:00</td><td>AtCoder Daily Training ALL 2026/09/25 16:00start</td><td><a href='https://atcoder.jp/contests/adt_all_20260925_1' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-25 15:00</td><td>AtCoder Daily Training EASY 2026/09/25 16:00start</td><td><a href='https://atcoder.jp/contests/adt_easy_20260925_1' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-24 19:00</td><td>AtCoder Weekday Contest 0164 Beta</td><td><a href='https://atcoder.jp/contests/awc0164' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-24 17:00</td><td>AtCoder Daily Training ALL 2026/09/24 18:00start</td><td><a href='https://atcoder.jp/contests/adt_all_20260924_2' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-24 17:00</td><td>AtCoder Daily Training EASY 2026/09/24 18:00start</td><td><a href='https://atcoder.jp/contests/adt_easy_20260924_2' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-24 15:00</td><td>AtCoder Daily Training ALL 2026/09/24 16:00start</td><td><a href='https://atcoder.jp/contests/adt_all_20260924_1' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-24 15:00</td><td>AtCoder Daily Training EASY 2026/09/24 16:00start</td><td><a href='https://atcoder.jp/contests/adt_easy_20260924_1' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-23 19:00</td><td>AtCoder Weekday Contest 0163 Beta</td><td><a href='https://atcoder.jp/contests/awc0163' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-23 17:00</td><td>AtCoder Daily Training ALL 2026/09/23 18:00start</td><td><a href='https://atcoder.jp/contests/adt_all_20260923_2' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-23 17:00</td><td>AtCoder Daily Training EASY 2026/09/23 18:00start</td><td><a href='https://atcoder.jp/contests/adt_easy_20260923_2' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-23 15:00</td><td>AtCoder Daily Training ALL 2026/09/23 16:00start</td><td><a href='https://atcoder.jp/contests/adt_all_20260923_1' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-23 15:00</td><td>AtCoder Daily Training EASY 2026/09/23 16:00start</td><td><a href='https://atcoder.jp/contests/adt_easy_20260923_1' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-22 19:00</td><td>AtCoder Weekday Contest 0162 Beta</td><td><a href='https://atcoder.jp/contests/awc0162' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-22 17:00</td><td>AtCoder Daily Training ALL 2026/09/22 18:00start</td><td><a href='https://atcoder.jp/contests/adt_all_20260922_2' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-22 17:00</td><td>AtCoder Daily Training EASY 2026/09/22 18:00start</td><td><a href='https://atcoder.jp/contests/adt_easy_20260922_2' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-22 15:00</td><td>AtCoder Daily Training ALL 2026/09/22 16:00start</td><td><a href='https://atcoder.jp/contests/adt_all_20260922_1' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-22 15:00</td><td>AtCoder Daily Training EASY 2026/09/22 16:00start</td><td><a href='https://atcoder.jp/contests/adt_easy_20260922_1' target='_blank'>链接</a></td></tr><tr data-platform='CF'><td><span class='dot' style='background:#3b82f6'></span>Codeforces</td><td>09-21 22:35</td><td>Codeforces Round 1122 (Div. 3)</td><td><a href='https://codeforces.com/contest/2266' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-21 19:00</td><td>AtCoder Weekday Contest 0161 Beta</td><td><a href='https://atcoder.jp/contests/awc0161' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-21 17:00</td><td>AtCoder Daily Training ALL 2026/09/21 18:00start</td><td><a href='https://atcoder.jp/contests/adt_all_20260921_2' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-21 17:00</td><td>AtCoder Daily Training EASY 2026/09/21 18:00start</td><td><a href='https://atcoder.jp/contests/adt_easy_20260921_2' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-21 15:00</td><td>AtCoder Daily Training ALL 2026/09/21 16:00start</td><td><a href='https://atcoder.jp/contests/adt_all_20260921_1' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-21 15:00</td><td>AtCoder Daily Training EASY 2026/09/21 16:00start</td><td><a href='https://atcoder.jp/contests/adt_easy_20260921_1' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-20 20:00</td><td>AtCoder Regular Contest++ 230</td><td><a href='https://atcoder.jp/contests/arc230' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-19 20:00</td><td>JIJプログラミングコンテスト 2026（AtCoder Beginner Contest 476）</td><td><a href='https://atcoder.jp/contests/abc476' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-18 19:00</td><td>AtCoder Weekday Contest 0160 Beta</td><td><a href='https://atcoder.jp/contests/awc0160' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-18 19:00</td><td>AtCoder 企業対抗リーグ 2026 第2戦</td><td><a href='https://atcoder.jp/contests/c-league2026-2' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-18 19:00</td><td>AtCoder 企業対抗リーグ 2026 第2戦(オープンコンテスト)</td><td><a href='https://atcoder.jp/contests/c-league2026-2-open' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-18 17:00</td><td>AtCoder Daily Training ALL 2026/09/18 18:00start</td><td><a href='https://atcoder.jp/contests/adt_all_20260918_2' target='_blank'>链接</a></td></tr><tr data-platform='ATC'><td><span class='dot' style='background:#f59e0b'></span>AtCoder</td><td>09-18 17:00</td><td>AtCoder Daily Training EASY 2026/09/18 18:00start</td><td><a href='https://atcoder.jp/contests/adt_easy_20260918_2' target='_blank'>链接</a></td></tr></tbody>
-  </table>
-</main>
-<footer>由 GitHub Actions 自动更新 · 每 6 小时刷新一次数据</footer>
 <script>
-// 平台筛选
-document.getElementById('filters').addEventListener('click', e => {
-  if (e.target.tagName !== 'BUTTON') return;
-  document.querySelectorAll('.chip').forEach(b => b.classList.remove('active'));
-  e.target.classList.add('active');
-  applyFilter(e.target.dataset.p);
-});
-function applyFilter(p) {
-  document.querySelectorAll('#upcoming .card, #recent tr[data-platform]').forEach(el => {
-    el.style.display = (p === 'ALL' || el.dataset.platform === p) ? '' : 'none';
-  });
-  document.querySelectorAll('#upcoming .day-title').forEach(t => {
-    let el = t.nextElementSibling, visible = false;
-    while (el && !el.classList.contains('day-title')) {
-      if (el.classList.contains('grid'))
-        [...el.children].forEach(c => { if (c.style.display !== 'none') visible = true; });
-      el = el.nextElementSibling;
+// ============ 配置：改成你的仓库地址 ============
+const DATA_URL = "https://cdn.jsdelivr.net/gh/<你的用户名>/<仓库名>@main/contests.json";
+
+const SOURCE_COLOR = { "Codeforces": "var(--cf)", "AtCoder": "var(--atc)", "牛客": "var(--nk)" };
+const PAST_DAYS = 7, FUTURE_DAYS = 14;
+const WEEKDAYS = ["一", "二", "三", "四", "五", "六", "日"];
+const MAX_CHIP = 3;
+
+function startOfDay(d) { const x = new Date(d); x.setHours(0, 0, 0, 0); return x; }
+function fmtHM(d) { return String(d.getHours()).padStart(2, "0") + ":" + String(d.getMinutes()).padStart(2, "0"); }
+function fmtMD(d) { return `${d.getMonth() + 1}/${d.getDate()}`; }
+function fmtWeekday(d) { return "周" + "日一二三四五六"[d.getDay()]; }
+function fmtDur(min) {
+  if (min == null) return "";
+  if (min % 60 === 0) return (min / 60) + "小时";
+  return Math.floor(min / 60) + "小时" + (min % 60) + "分";
+}
+function countdown(start) {
+  const diff = start - Date.now();
+  if (diff <= 0) return "已开始/结束";
+  const d = Math.floor(diff / 864e5), h = Math.floor(diff % 864e5 / 36e5), m = Math.floor(diff % 36e5 / 6e4);
+  if (d > 0) return `${d}天${h}小时后`;
+  if (h > 0) return `${h}小时${m}分后`;
+  return `${m}分钟后`;
+}
+function esc(s) { return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
+function colorOf(c) { return SOURCE_COLOR[c.source] || "var(--dim)"; }
+
+let CONTESTS = [];
+
+async function load() {
+  const r = await fetch(DATA_URL + "?t=" + Date.now());
+  if (!r.ok) throw new Error("HTTP " + r.status);
+  return r.json();
+}
+
+function filterRange() {
+  const today = startOfDay(new Date());
+  const lo = new Date(today); lo.setDate(lo.getDate() - PAST_DAYS);
+  const hi = new Date(today); hi.setDate(hi.getDate() + FUTURE_DAYS + 1);
+  return CONTESTS
+    .map(c => ({ ...c, _start: new Date(c.start) }))
+    .filter(c => { const d = startOfDay(c._start); return d >= lo && d <= hi; })
+    .sort((a, b) => a._start - b._start);
+}
+
+function renderCalendar(items) {
+  const today = startOfDay(new Date());
+  const rangeStart = new Date(today); rangeStart.setDate(rangeStart.getDate() - PAST_DAYS);
+  const rangeEnd = new Date(today);   rangeEnd.setDate(rangeEnd.getDate() + FUTURE_DAYS);
+
+  const byDay = new Map();
+  for (const c of items) {
+    const key = startOfDay(c._start).toDateString();
+    if (!byDay.has(key)) byDay.set(key, []);
+    byDay.get(key).push(c);
+  }
+
+  const first = new Date(rangeStart);
+  first.setDate(first.getDate() - ((first.getDay() + 6) % 7));
+  const last = new Date(rangeEnd);
+  last.setDate(last.getDate() + (7 - last.getDay()) % 7);
+
+  let html = WEEKDAYS.map(w => `<div class="weekday">周${w}</div>`).join("");
+  for (let d = new Date(first); d <= last; d.setDate(d.getDate() + 1)) {
+    const inRange = d >= rangeStart && d <= rangeEnd;
+    const isToday = d.getTime() === today.getTime();
+    const list = byDay.get(d.toDateString()) || [];
+    let inner = "";
+    list.slice(0, MAX_CHIP).forEach(c => {
+      inner += `<a class="chip" style="--c:${colorOf(c)}" href="${esc(c.url)}" target="_blank" rel="noopener"
+        title="${esc(c.name)}｜${esc(c.source)}｜开始 ${c._start.toLocaleString("zh-CN")}">
+        <span class="time">${fmtHM(c._start)}</span>${esc(c.name)}</a>`;
+    });
+    if (list.length > MAX_CHIP) inner += `<div class="more">+${list.length - MAX_CHIP} 场…（切换列表查看）</div>`;
+    html += `<div class="day ${d < today ? "past" : ""} ${isToday ? "today" : ""}" ${inRange ? "" : 'style="visibility:hidden"'}>
+      <div class="num">${fmtMD(d)}</div>${inner}</div>`;
+  }
+  document.getElementById("calendar").innerHTML = html;
+}
+
+function renderList(items) {
+  const now = Date.now();
+  const today = startOfDay(new Date());
+  let html = "", lastKey = "";
+  if (!items.length) html = `<div class="empty">该时间范围内没有比赛</div>`;
+  for (const c of items) {
+    const key = startOfDay(c._start).toDateString();
+    if (key !== lastKey) {
+      const d = startOfDay(c._start);
+      const label = d.getTime() === today.getTime() ? "今天" : (d < today ? "" : fmtWeekday(d));
+      html += `<div class="date-sep">${fmtMD(d)} ${label}</div>`;
+      lastKey = key;
     }
-    t.style.display = visible ? '' : 'none';
+    const cd = c._start > now ? countdown(c._start) : "已结束";
+    html += `<a class="row ${c._start < now ? "past" : ""}" style="--c:${colorOf(c)}"
+      href="${esc(c.url)}" target="_blank" rel="noopener">
+      <span class="time-col">${fmtHM(c._start)}</span>
+      <span class="src-tag">${esc(c.source)}</span>
+      <span class="name" title="${esc(c.name)}">${esc(c.name)}</span>
+      <span class="countdown">${cd}${c.duration_min ? " · " + fmtDur(c.duration_min) : ""}</span>
+    </a>`;
+  }
+  document.getElementById("list").innerHTML = html;
+}
+
+// ===== 待做题单（localStorage 本地存储）=====
+const TODO_KEY = "todo_lists_v1";
+let todos = [];
+try { todos = JSON.parse(localStorage.getItem(TODO_KEY)) || []; } catch (e) { todos = []; }
+
+function saveTodos() { localStorage.setItem(TODO_KEY, JSON.stringify(todos)); }
+
+function renderTodos() {
+  const box = document.getElementById("todo-list");
+  document.getElementById("todo-count").textContent = todos.length;
+  if (!todos.length) {
+    box.innerHTML = `<div class="todo-empty">队列为空，添加一个想做的题单吧～</div>`;
+    return;
+  }
+  box.innerHTML = todos.map((t, i) => {
+    let host = "";
+    try { host = new URL(t.url).hostname.replace(/^www\./, ""); } catch (e) {}
+    return `<div class="todo-item">
+      <a class="t-name" href="${esc(t.url)}" target="_blank" rel="noopener" title="${esc(t.url)}">${esc(t.name)}</a>
+      <span class="t-host">${esc(host)}</span>
+      <button class="t-done" data-i="${i}">✓ 完成</button>
+      <button class="t-del" data-i="${i}" title="移出队列">✕</button>
+    </div>`;
+  }).join("");
+  box.querySelectorAll(".t-done").forEach(b => b.onclick = () => {
+    todos.splice(+b.dataset.i, 1); saveTodos(); renderTodos();
+  });
+  box.querySelectorAll(".t-del").forEach(b => b.onclick = () => {
+    todos.splice(+b.dataset.i, 1); saveTodos(); renderTodos();
   });
 }
-// 前端倒计时（根据当前时间实时计算）
-function tick() {
-  const nowMs = Date.now();
-  document.querySelectorAll('.countdown').forEach(el => {
-    const diff = el.dataset.start * 1000 - nowMs;
-    if (diff <= 0) { el.textContent = '🔴 正在进行或已开始'; el.classList.add('live'); return; }
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor(diff % 86400000 / 3600000);
-    const m = Math.floor(diff % 3600000 / 60000);
-    const s = Math.floor(diff % 60000 / 1000);
-    el.textContent = '⏳ 倒计时 ' + (d > 0 ? d + '天 ' : '') +
-      String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
-  });
+
+function addTodo() {
+  const nameEl = document.getElementById("todo-name"), urlEl = document.getElementById("todo-url");
+  let name = nameEl.value.trim(), url = urlEl.value.trim();
+  if (!name || !url) { alert("请填写名称和链接"); return; }
+  if (!/^https?:\/\//i.test(url)) url = "https://" + url;
+  try { new URL(url); } catch (e) { alert("链接格式不正确"); return; }
+  todos.unshift({ name, url, added: Date.now() });
+  saveTodos(); renderTodos();
+  nameEl.value = ""; urlEl.value = "";
 }
-tick(); setInterval(tick, 1000);
+document.getElementById("todo-add").onclick = addTodo;
+document.getElementById("todo-url").addEventListener("keydown", e => { if (e.key === "Enter") addTodo(); });
+renderTodos();
+
+// 视图切换
+const btnCal = document.getElementById("btn-cal"), btnList = document.getElementById("btn-list");
+btnCal.onclick = () => { btnCal.classList.add("active"); btnList.classList.remove("active");
+  document.getElementById("calendar").style.display = "grid"; document.getElementById("list").classList.remove("show"); };
+btnList.onclick = () => { btnList.classList.add("active"); btnCal.classList.remove("active");
+  document.getElementById("calendar").style.display = "none"; document.getElementById("list").classList.add("show"); };
+
+(async () => {
+  const cal = document.getElementById("calendar");
+  try {
+    const data = await load();
+    // 兼容两种 JSON 格式：纯数组（旧版脚本）或 { contests: [...] }（新版）
+    CONTESTS = Array.isArray(data) ? data : (data.contests || []);
+    const failed = Array.isArray(data) ? [] : (data.failed_sources || []);
+    const updated = Array.isArray(data) ? null : data.updated_at;
+    document.getElementById("meta").textContent =
+      (updated ? "数据更新于 " + new Date(updated).toLocaleString("zh-CN") : "") +
+      (failed.length ? ` · ⚠️ ${failed.join("、")} 抓取失败` : "");
+    const items = filterRange();
+    renderCalendar(items);
+    renderList(items);
+  } catch (e) {
+    cal.innerHTML = `<div class="error">数据加载失败：${esc(e.message)}<br>请检查 index.html 里的 DATA_URL 配置</div>`;
+    document.getElementById("meta").textContent = "加载失败";
+  }
+})();
 </script>
 </body>
 </html>
