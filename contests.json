@@ -28,6 +28,13 @@
     "url": "https://atcoder.jp/contests/abc478"
   },
   {
+    "source": "牛客",
+    "name": "2026牛客国庆集训派对day4",
+    "start": "2026-10-04T12:00",
+    "duration_min": 300,
+    "url": "https://ac.nowcoder.com/acm/contest/140732"
+  },
+  {
     "source": "AtCoder",
     "name": "AtCoder Regular Contest 231",
     "start": "2026-10-04T12:00+00:00",
@@ -40,6 +47,27 @@
     "start": "2026-10-04T19:00",
     "duration_min": 120,
     "url": "https://ac.nowcoder.com/acm/contest/141142"
+  },
+  {
+    "source": "牛客",
+    "name": "2026牛客国庆集训派对day5",
+    "start": "2026-10-05T12:00",
+    "duration_min": 300,
+    "url": "https://ac.nowcoder.com/acm/contest/140733"
+  },
+  {
+    "source": "牛客",
+    "name": "2026牛客国庆集训派对day6",
+    "start": "2026-10-06T12:00",
+    "duration_min": 300,
+    "url": "https://ac.nowcoder.com/acm/contest/140734"
+  },
+  {
+    "source": "牛客",
+    "name": "2026牛客国庆集训派对day7",
+    "start": "2026-10-07T12:00",
+    "duration_min": 300,
+    "url": "https://ac.nowcoder.com/acm/contest/140735"
   },
   {
     "source": "牛客",
