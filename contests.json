@@ -145,5 +145,12 @@
     "start": "2026-10-17T14:35+00:00",
     "duration_min": 180,
     "url": "https://codeforces.com/contest/2261"
+  },
+  {
+    "source": "AtCoder",
+    "name": "HACK TO THE FUTURE 2027 (AtCoder Heuristic Contest 074)",
+    "start": "2026-10-30T10:00+00:00",
+    "duration_min": 14400,
+    "url": "https://atcoder.jp/contests/ahc074"
   }
 ]
