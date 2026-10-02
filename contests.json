@@ -1,13 +1,6 @@
 [
   {
     "source": "牛客",
-    "name": "2026牛客国庆集训派对day2",
-    "start": "2026-10-02T12:00",
-    "duration_min": 300,
-    "url": "https://ac.nowcoder.com/acm/contest/140730"
-  },
-  {
-    "source": "牛客",
     "name": "2026牛客国庆集训派对day3",
     "start": "2026-10-03T12:00",
     "duration_min": 300,
