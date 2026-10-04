@@ -1,13 +1,6 @@
 [
   {
     "source": "牛客",
-    "name": "牛客周赛 Round 164",
-    "start": "2026-10-04T19:00",
-    "duration_min": 120,
-    "url": "https://ac.nowcoder.com/acm/contest/141142"
-  },
-  {
-    "source": "牛客",
     "name": "2026牛客国庆集训派对day5",
     "start": "2026-10-05T12:00",
     "duration_min": 300,
