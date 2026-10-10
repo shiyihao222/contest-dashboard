@@ -56,6 +56,13 @@
     "url": "https://codeforces.com/contest/2276"
   },
   {
+    "source": "牛客",
+    "name": "牛客练习赛158",
+    "start": "2026-10-16T19:00",
+    "duration_min": 150,
+    "url": "https://ac.nowcoder.com/acm/contest/141876"
+  },
+  {
     "source": "AtCoder",
     "name": "AtCoder Heuristic Contest 073",
     "start": "2026-10-17T06:00+00:00",
@@ -78,6 +85,20 @@
   },
   {
     "source": "牛客",
+    "name": "牛客周赛 Round 166",
+    "start": "2026-10-18T19:00",
+    "duration_min": 120,
+    "url": "https://ac.nowcoder.com/acm/contest/141877"
+  },
+  {
+    "source": "牛客",
+    "name": "牛客挑战赛93",
+    "start": "2026-10-23T19:00",
+    "duration_min": 180,
+    "url": "https://ac.nowcoder.com/acm/contest/141878"
+  },
+  {
+    "source": "牛客",
     "name": "牛客2026年1024程序员节娱乐赛",
     "start": "2026-10-24T19:00",
     "duration_min": 180,
@@ -89,6 +110,13 @@
     "start": "2026-10-30T10:00+00:00",
     "duration_min": 14400,
     "url": "https://atcoder.jp/contests/ahc074"
+  },
+  {
+    "source": "牛客",
+    "name": "牛客小白月赛139",
+    "start": "2026-10-30T19:00",
+    "duration_min": 120,
+    "url": "https://ac.nowcoder.com/acm/contest/141882"
   },
   {
     "source": "AtCoder",
