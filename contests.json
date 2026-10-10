@@ -1,12 +1,5 @@
 [
   {
-    "source": "AtCoder",
-    "name": "AtCoder Regular Contest++ 232",
-    "start": "2026-10-10T12:00+00:00",
-    "duration_min": 150,
-    "url": "https://atcoder.jp/contests/arc232"
-  },
-  {
     "source": "Codeforces",
     "name": "DeepInfra Round 1 (Codeforces Round 1126, Div. 1 + Div. 2)",
     "start": "2026-10-10T15:05+00:00",
@@ -121,7 +114,7 @@
   {
     "source": "AtCoder",
     "name": "AtCoder Grand Contest 079",
-    "start": "2026-11-01T12:00+00:00",
+    "start": "2026-11-08T12:00+00:00",
     "duration_min": 180,
     "url": "https://atcoder.jp/contests/agc079"
   }
