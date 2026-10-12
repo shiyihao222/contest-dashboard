@@ -64,6 +64,13 @@
   },
   {
     "source": "AtCoder",
+    "name": "AtCoder Regular Contest++ 233",
+    "start": "2026-10-25T12:00+00:00",
+    "duration_min": 150,
+    "url": "https://atcoder.jp/contests/arc233"
+  },
+  {
+    "source": "AtCoder",
     "name": "HACK TO THE FUTURE 2027 (AtCoder Heuristic Contest 074)",
     "start": "2026-10-30T10:00+00:00",
     "duration_min": 14400,
