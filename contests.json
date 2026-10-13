@@ -85,6 +85,20 @@
   },
   {
     "source": "AtCoder",
+    "name": "AtCoder Beginner Contest 482",
+    "start": "2026-10-31T12:00+00:00",
+    "duration_min": 100,
+    "url": "https://atcoder.jp/contests/abc482"
+  },
+  {
+    "source": "AtCoder",
+    "name": "AtCoder Beginner Contest 483",
+    "start": "2026-11-07T12:00+00:00",
+    "duration_min": 100,
+    "url": "https://atcoder.jp/contests/abc483"
+  },
+  {
+    "source": "AtCoder",
     "name": "AtCoder Grand Contest 079",
     "start": "2026-11-08T12:00+00:00",
     "duration_min": 180,
