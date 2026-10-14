@@ -49,6 +49,13 @@
     "url": "https://ac.nowcoder.com/acm/contest/141878"
   },
   {
+    "source": "Codeforces",
+    "name": "Codeforces Round (Div. 2)",
+    "start": "2026-10-24T11:05+00:00",
+    "duration_min": 120,
+    "url": "https://codeforces.com/contest/2277"
+  },
+  {
     "source": "牛客",
     "name": "牛客2026年1024程序员节娱乐赛",
     "start": "2026-10-24T19:00",
