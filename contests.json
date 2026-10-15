@@ -49,6 +49,13 @@
     "url": "https://codeforces.com/contest/2277"
   },
   {
+    "source": "AtCoder",
+    "name": "SMBC Programming Contest #2 (AtCoder Beginner Contest 481）",
+    "start": "2026-10-24T12:00+00:00",
+    "duration_min": 100,
+    "url": "https://atcoder.jp/contests/abc481"
+  },
+  {
     "source": "牛客",
     "name": "牛客2026年1024程序员节娱乐赛",
     "start": "2026-10-24T19:00",
