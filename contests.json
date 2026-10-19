@@ -89,5 +89,12 @@
     "start": "2026-11-08T12:00+00:00",
     "duration_min": 180,
     "url": "https://atcoder.jp/contests/agc079"
+  },
+  {
+    "source": "AtCoder",
+    "name": "AtCoder Beginner Contest 484",
+    "start": "2026-11-14T12:00+00:00",
+    "duration_min": 100,
+    "url": "https://atcoder.jp/contests/abc484"
   }
 ]
