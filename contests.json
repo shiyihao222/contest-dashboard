@@ -77,11 +77,32 @@
     "url": "https://codeforces.com/contest/2278"
   },
   {
+    "source": "Codeforces",
+    "name": "ICPC 2026 Online Challenge 2 powered by Huawei",
+    "start": "2026-11-05T11:00+00:00",
+    "duration_min": 20160,
+    "url": "https://codeforces.com/contest/2281"
+  },
+  {
     "source": "AtCoder",
     "name": "AtCoder Beginner Contest 483",
     "start": "2026-11-07T12:00+00:00",
     "duration_min": 100,
     "url": "https://atcoder.jp/contests/abc483"
+  },
+  {
+    "source": "Codeforces",
+    "name": "Codeforces Round (Div. 1)",
+    "start": "2026-11-07T14:35+00:00",
+    "duration_min": 150,
+    "url": "https://codeforces.com/contest/2279"
+  },
+  {
+    "source": "Codeforces",
+    "name": "Codeforces Round (Div. 2)",
+    "start": "2026-11-07T14:35+00:00",
+    "duration_min": 150,
+    "url": "https://codeforces.com/contest/2280"
   },
   {
     "source": "AtCoder",
