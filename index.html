@@ -14,7 +14,7 @@
   body {
     background: var(--bg); color: var(--text);
     font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
-    min-height: 100vh; padding: 20px;
+    min-height: 100vh; padding: 20px; overflow-x: hidden;
   }
   .container { max-width: 1200px; margin: 0 auto; }
   header { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 8px; }
@@ -50,7 +50,7 @@
     background: rgba(255,255,255,.04);
     border-left: 3px solid var(--c);
     background: color-mix(in srgb, var(--c) 13%, transparent);
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    white-space: normal; word-break: break-all; overflow-wrap: anywhere;
   }
   .chip:hover { background: rgba(255,255,255,.12); }
   .chip .time { color: var(--dim); margin-right: 4px; font-variant-numeric: tabular-nums; }
@@ -131,6 +131,7 @@
   }
 </style>
 <base target="_blank">
+<base target="_blank">
 </head>
 <body>
 <div class="container">
@@ -167,7 +168,7 @@
 const DATA_URL = "https://cdn.jsdelivr.net/gh/shiyihao222/contest-dashboard@main/contests.json";
 
 const SOURCE_COLOR = { "Codeforces": "var(--cf)", "AtCoder": "var(--atc)", "牛客": "var(--nk)" };
-const PAST_DAYS = 7, FUTURE_DAYS = 14;
+const PAST_DAYS = 7, FUTURE_DAYS = 90;  // 过去 7 天 + 未来 90 天，可按需调整
 const WEEKDAYS = ["一", "二", "三", "四", "五", "六", "日"];
 const MAX_CHIP = 3;
 
