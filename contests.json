@@ -77,11 +77,25 @@
     "url": "https://codeforces.com/contest/2278"
   },
   {
+    "source": "牛客",
+    "name": "牛客周赛 Round 168",
+    "start": "2026-11-01T19:00",
+    "duration_min": 120,
+    "url": "https://ac.nowcoder.com/acm/contest/142559"
+  },
+  {
     "source": "Codeforces",
     "name": "ICPC 2026 Online Challenge 2 powered by Huawei",
     "start": "2026-11-05T11:00+00:00",
     "duration_min": 20160,
     "url": "https://codeforces.com/contest/2281"
+  },
+  {
+    "source": "牛客",
+    "name": "牛客练习赛159",
+    "start": "2026-11-06T19:00",
+    "duration_min": 150,
+    "url": "https://ac.nowcoder.com/acm/contest/142560"
   },
   {
     "source": "AtCoder",
