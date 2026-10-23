@@ -1,16 +1,9 @@
 [
   {
-    "source": "牛客",
-    "name": "牛客挑战赛93",
-    "start": "2026-10-23T19:00",
-    "duration_min": 180,
-    "url": "https://ac.nowcoder.com/acm/contest/141878"
-  },
-  {
     "source": "Codeforces",
     "name": "Codeforces Round 1129 (Div. 2)",
     "start": "2026-10-24T11:05+00:00",
-    "duration_min": 120,
+    "duration_min": 135,
     "url": "https://codeforces.com/contest/2277"
   },
   {
