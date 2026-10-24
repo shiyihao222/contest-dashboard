@@ -1,12 +1,5 @@
 [
   {
-    "source": "牛客",
-    "name": "牛客2026年1024程序员节娱乐赛",
-    "start": "2026-10-24T19:00",
-    "duration_min": 180,
-    "url": "https://ac.nowcoder.com/acm/contest/141819"
-  },
-  {
     "source": "AtCoder",
     "name": "AtCoder Regular Contest++ 233",
     "start": "2026-10-25T12:00+00:00",
