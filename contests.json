@@ -1,12 +1,5 @@
 [
   {
-    "source": "AtCoder",
-    "name": "AtCoder Regular Contest++ 233",
-    "start": "2026-10-25T12:00+00:00",
-    "duration_min": 150,
-    "url": "https://atcoder.jp/contests/arc233"
-  },
-  {
     "source": "牛客",
     "name": "牛客周赛 Round 167",
     "start": "2026-10-25T19:00",
@@ -103,5 +96,12 @@
     "start": "2026-11-14T12:00+00:00",
     "duration_min": 100,
     "url": "https://atcoder.jp/contests/abc484"
+  },
+  {
+    "source": "AtCoder",
+    "name": "AtCoder Regular Contest++ 234",
+    "start": "2026-11-22T12:00+00:00",
+    "duration_min": 150,
+    "url": "https://atcoder.jp/contests/arc234"
   }
 ]
