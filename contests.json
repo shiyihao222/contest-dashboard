@@ -1,12 +1,5 @@
 [
   {
-    "source": "Codeforces",
-    "name": "Codeforces Round 1130 (Div. 2)",
-    "start": "2026-10-26T14:35+00:00",
-    "duration_min": 135,
-    "url": "https://codeforces.com/contest/2272"
-  },
-  {
     "source": "AtCoder",
     "name": "HACK TO THE FUTURE 2027 (AtCoder Heuristic Contest 074)",
     "start": "2026-10-30T10:00+00:00",
@@ -56,6 +49,13 @@
     "url": "https://codeforces.com/contest/2281"
   },
   {
+    "source": "Codeforces",
+    "name": "Codeforces Round (Div. 2)",
+    "start": "2026-11-06T14:35+00:00",
+    "duration_min": 135,
+    "url": "https://codeforces.com/contest/2284"
+  },
+  {
     "source": "牛客",
     "name": "牛客练习赛159",
     "start": "2026-11-06T19:00",
@@ -96,6 +96,13 @@
     "start": "2026-11-14T12:00+00:00",
     "duration_min": 100,
     "url": "https://atcoder.jp/contests/abc484"
+  },
+  {
+    "source": "Codeforces",
+    "name": "Codeforces Round (Div. 2)",
+    "start": "2026-11-15T14:35+00:00",
+    "duration_min": 120,
+    "url": "https://codeforces.com/contest/2285"
   },
   {
     "source": "AtCoder",
