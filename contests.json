@@ -43,6 +43,13 @@
   },
   {
     "source": "Codeforces",
+    "name": "Educational Codeforces Round 196 (Rated for Div. 2)",
+    "start": "2026-11-04T14:35+00:00",
+    "duration_min": 120,
+    "url": "https://codeforces.com/contest/2283"
+  },
+  {
+    "source": "Codeforces",
     "name": "ICPC 2026 Online Challenge 2 powered by Huawei",
     "start": "2026-11-05T11:00+00:00",
     "duration_min": 20160,
@@ -89,6 +96,13 @@
     "start": "2026-11-14T12:00+00:00",
     "duration_min": 100,
     "url": "https://atcoder.jp/contests/abc484"
+  },
+  {
+    "source": "AtCoder",
+    "name": "AtCoder Beginner Contest 485",
+    "start": "2026-11-21T12:00+00:00",
+    "duration_min": 100,
+    "url": "https://atcoder.jp/contests/abc485"
   },
   {
     "source": "AtCoder",
