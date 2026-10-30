@@ -1,12 +1,5 @@
 [
   {
-    "source": "牛客",
-    "name": "牛客小白月赛139",
-    "start": "2026-10-30T19:00",
-    "duration_min": 120,
-    "url": "https://ac.nowcoder.com/acm/contest/141882"
-  },
-  {
     "source": "AtCoder",
     "name": "AtCoder Beginner Contest 482",
     "start": "2026-10-31T12:00+00:00",
