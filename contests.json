@@ -1,12 +1,5 @@
 [
   {
-    "source": "AtCoder",
-    "name": "HACK TO THE FUTURE 2027 (AtCoder Heuristic Contest 074)",
-    "start": "2026-10-30T10:00+00:00",
-    "duration_min": 14400,
-    "url": "https://atcoder.jp/contests/ahc074"
-  },
-  {
     "source": "牛客",
     "name": "牛客小白月赛139",
     "start": "2026-10-30T19:00",
@@ -89,6 +82,20 @@
     "start": "2026-11-08T12:00+00:00",
     "duration_min": 180,
     "url": "https://atcoder.jp/contests/agc079"
+  },
+  {
+    "source": "牛客",
+    "name": "牛客周赛 Round 169",
+    "start": "2026-11-08T19:00",
+    "duration_min": 120,
+    "url": "https://ac.nowcoder.com/acm/contest/143199"
+  },
+  {
+    "source": "牛客",
+    "name": "牛客小白月赛140",
+    "start": "2026-11-13T19:00",
+    "duration_min": 120,
+    "url": "https://ac.nowcoder.com/acm/contest/143195"
   },
   {
     "source": "AtCoder",
