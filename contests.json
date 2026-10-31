@@ -1,19 +1,5 @@
 [
   {
-    "source": "AtCoder",
-    "name": "AtCoder Beginner Contest 482",
-    "start": "2026-10-31T12:00+00:00",
-    "duration_min": 100,
-    "url": "https://atcoder.jp/contests/abc482"
-  },
-  {
-    "source": "Codeforces",
-    "name": "Codeforces Round 1131 (Div. 3)",
-    "start": "2026-10-31T14:35+00:00",
-    "duration_min": 135,
-    "url": "https://codeforces.com/contest/2278"
-  },
-  {
     "source": "牛客",
     "name": "牛客周赛 Round 168",
     "start": "2026-11-01T19:00",
