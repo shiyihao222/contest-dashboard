@@ -84,13 +84,6 @@
     "url": "https://codeforces.com/contest/2285"
   },
   {
-    "source": "Codeforces",
-    "name": "Kotlin Heroes: Practice 15",
-    "start": "2026-11-20T14:30+00:00",
-    "duration_min": 10080,
-    "url": "https://codeforces.com/contest/2286"
-  },
-  {
     "source": "AtCoder",
     "name": "AtCoder Beginner Contest 485",
     "start": "2026-11-21T12:00+00:00",
@@ -106,8 +99,15 @@
   },
   {
     "source": "Codeforces",
+    "name": "Kotlin Heroes: Practice 15",
+    "start": "2026-12-01T14:30+00:00",
+    "duration_min": 10080,
+    "url": "https://codeforces.com/contest/2286"
+  },
+  {
+    "source": "Codeforces",
     "name": "Kotlin Heroes: Episode 15",
-    "start": "2026-11-27T14:35+00:00",
+    "start": "2026-12-08T14:35+00:00",
     "duration_min": 150,
     "url": "https://codeforces.com/contest/2282"
   }
