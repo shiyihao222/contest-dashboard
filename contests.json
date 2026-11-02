@@ -105,6 +105,13 @@
     "url": "https://atcoder.jp/contests/arc234"
   },
   {
+    "source": "AtCoder",
+    "name": "AtCoder Beginner Contest 486",
+    "start": "2026-11-28T12:00+00:00",
+    "duration_min": 100,
+    "url": "https://atcoder.jp/contests/abc486"
+  },
+  {
     "source": "Codeforces",
     "name": "Kotlin Heroes: Practice 15",
     "start": "2026-12-01T14:30+00:00",
