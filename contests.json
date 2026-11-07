@@ -1,19 +1,5 @@
 [
   {
-    "source": "Codeforces",
-    "name": "Codeforces Round 1133 (Div. 1)",
-    "start": "2026-11-07T14:35+00:00",
-    "duration_min": 150,
-    "url": "https://codeforces.com/contest/2279"
-  },
-  {
-    "source": "Codeforces",
-    "name": "Codeforces Round 1133 (Div. 2)",
-    "start": "2026-11-07T14:35+00:00",
-    "duration_min": 150,
-    "url": "https://codeforces.com/contest/2280"
-  },
-  {
     "source": "AtCoder",
     "name": "AtCoder Grand Contest 079",
     "start": "2026-11-08T12:00+00:00",
@@ -26,6 +12,13 @@
     "start": "2026-11-08T19:00",
     "duration_min": 120,
     "url": "https://ac.nowcoder.com/acm/contest/143199"
+  },
+  {
+    "source": "Codeforces",
+    "name": "Codeforces Round 1134 (Div. 4)",
+    "start": "2026-11-12T14:35+00:00",
+    "duration_min": 135,
+    "url": "https://codeforces.com/contest/2290"
   },
   {
     "source": "牛客",
