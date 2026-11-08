@@ -1,12 +1,5 @@
 [
   {
-    "source": "牛客",
-    "name": "牛客周赛 Round 169",
-    "start": "2026-11-08T19:00",
-    "duration_min": 120,
-    "url": "https://ac.nowcoder.com/acm/contest/143199"
-  },
-  {
     "source": "Codeforces",
     "name": "Codeforces Round 1134 (Div. 4)",
     "start": "2026-11-12T14:35+00:00",
