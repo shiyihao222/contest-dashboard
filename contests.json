@@ -1,5 +1,12 @@
 [
   {
+    "source": "牛客",
+    "name": "交互、通信新题型测试比赛",
+    "start": "2026-11-10T19:00",
+    "duration_min": 120,
+    "url": "https://ac.nowcoder.com/acm/contest/143824"
+  },
+  {
     "source": "Codeforces",
     "name": "Codeforces Round 1134 (Div. 4)",
     "start": "2026-11-12T14:35+00:00",
@@ -110,5 +117,12 @@
     "start": "2026-12-27T12:00+00:00",
     "duration_min": 180,
     "url": "https://atcoder.jp/contests/agc081"
+  },
+  {
+    "source": "牛客",
+    "name": "2027牛客寒假算法基础集训营1",
+    "start": "2027-01-27T14:00",
+    "duration_min": 240,
+    "url": "https://ac.nowcoder.com/acm/contest/143814"
   }
 ]
