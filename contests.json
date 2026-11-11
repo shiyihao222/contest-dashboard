@@ -64,10 +64,10 @@
   },
   {
     "source": "AtCoder",
-    "name": "AtCoder Grand Contest 080",
+    "name": "AtCoder Regular Contest++ 234",
     "start": "2026-11-22T12:00+00:00",
-    "duration_min": 180,
-    "url": "https://atcoder.jp/contests/agc080"
+    "duration_min": 150,
+    "url": "https://atcoder.jp/contests/arc234"
   },
   {
     "source": "牛客",
@@ -106,17 +106,17 @@
   },
   {
     "source": "AtCoder",
-    "name": "AtCoder Grand Contest 081",
+    "name": "AtCoder Grand Contest 080",
     "start": "2026-12-13T12:00+00:00",
     "duration_min": 180,
-    "url": "https://atcoder.jp/contests/agc081"
+    "url": "https://atcoder.jp/contests/agc080"
   },
   {
     "source": "AtCoder",
-    "name": "AtCoder Grand Contest 082",
+    "name": "AtCoder Grand Contest 081",
     "start": "2026-12-27T12:00+00:00",
     "duration_min": 180,
-    "url": "https://atcoder.jp/contests/agc082"
+    "url": "https://atcoder.jp/contests/agc081"
   },
   {
     "source": "牛客",
