@@ -1,12 +1,5 @@
 [
   {
-    "source": "Codeforces",
-    "name": "Codeforces Round 1134 (Div. 4)",
-    "start": "2026-11-12T14:35+00:00",
-    "duration_min": 135,
-    "url": "https://codeforces.com/contest/2290"
-  },
-  {
     "source": "牛客",
     "name": "牛客小白月赛140",
     "start": "2026-11-13T19:00",
@@ -84,6 +77,13 @@
     "url": "https://atcoder.jp/contests/abc486"
   },
   {
+    "source": "AtCoder",
+    "name": "AtCoder Heuristic Contest 075",
+    "start": "2026-11-29T10:00+00:00",
+    "duration_min": 240,
+    "url": "https://atcoder.jp/contests/ahc075"
+  },
+  {
     "source": "Codeforces",
     "name": "Kotlin Heroes: Practice 15",
     "start": "2026-12-01T14:30+00:00",
@@ -117,6 +117,20 @@
     "start": "2026-12-27T12:00+00:00",
     "duration_min": 180,
     "url": "https://atcoder.jp/contests/agc081"
+  },
+  {
+    "source": "AtCoder",
+    "name": "AtCoder Grand Contest 082",
+    "start": "2027-01-17T12:00+00:00",
+    "duration_min": 180,
+    "url": "https://atcoder.jp/contests/agc082"
+  },
+  {
+    "source": "AtCoder",
+    "name": "AtCoder Grand Contest 083",
+    "start": "2027-01-24T12:00+00:00",
+    "duration_min": 180,
+    "url": "https://atcoder.jp/contests/agc083"
   },
   {
     "source": "牛客",
