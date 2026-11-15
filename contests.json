@@ -1,19 +1,5 @@
 [
   {
-    "source": "Codeforces",
-    "name": "Codeforces Round 1135 (Div. 2)",
-    "start": "2026-11-15T14:35+00:00",
-    "duration_min": 120,
-    "url": "https://codeforces.com/contest/2285"
-  },
-  {
-    "source": "牛客",
-    "name": "牛客周赛 Round 170",
-    "start": "2026-11-15T19:00",
-    "duration_min": 120,
-    "url": "https://ac.nowcoder.com/acm/contest/143406"
-  },
-  {
     "source": "牛客",
     "name": "牛客挑战赛94",
     "start": "2026-11-20T19:00",
