@@ -43,6 +43,13 @@
   },
   {
     "source": "牛客",
+    "name": "牛客周赛 Round 171",
+    "start": "2026-11-22T19:00",
+    "duration_min": 120,
+    "url": "https://ac.nowcoder.com/acm/contest/144189"
+  },
+  {
+    "source": "牛客",
     "name": "牛客练习赛160",
     "start": "2026-11-27T19:00",
     "duration_min": 150,
@@ -61,6 +68,13 @@
     "start": "2026-11-29T10:00+00:00",
     "duration_min": 240,
     "url": "https://atcoder.jp/contests/ahc075"
+  },
+  {
+    "source": "牛客",
+    "name": "牛客周赛 Round 172",
+    "start": "2026-11-29T19:00",
+    "duration_min": 120,
+    "url": "https://ac.nowcoder.com/acm/contest/144191"
   },
   {
     "source": "Codeforces",
