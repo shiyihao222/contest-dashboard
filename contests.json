@@ -113,6 +113,13 @@
   },
   {
     "source": "AtCoder",
+    "name": "UNIQUE VISION Programming Contest 2026 (ChristmasAtCoder Beginner Contest 489)",
+    "start": "2026-12-20T12:00+00:00",
+    "duration_min": 100,
+    "url": "https://atcoder.jp/contests/abc489"
+  },
+  {
+    "source": "AtCoder",
     "name": "AtCoder Grand Contest 081",
     "start": "2026-12-27T12:00+00:00",
     "duration_min": 180,
