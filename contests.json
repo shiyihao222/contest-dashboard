@@ -1,12 +1,5 @@
 [
   {
-    "source": "AtCoder",
-    "name": "AtCoder Beginner Contest 485",
-    "start": "2026-11-21T12:00+00:00",
-    "duration_min": 100,
-    "url": "https://atcoder.jp/contests/abc485"
-  },
-  {
     "source": "Codeforces",
     "name": "Codeforces Round 1136 (Div. 1)",
     "start": "2026-11-21T14:35+00:00",
@@ -82,6 +75,13 @@
     "start": "2026-12-05T12:00+00:00",
     "duration_min": 100,
     "url": "https://atcoder.jp/contests/abc487"
+  },
+  {
+    "source": "Codeforces",
+    "name": "ICPC 2026 Online Challenge 2 powered by Huawei",
+    "start": "2026-12-08T11:00+00:00",
+    "duration_min": 20160,
+    "url": "https://codeforces.com/contest/2291"
   },
   {
     "source": "Codeforces",
