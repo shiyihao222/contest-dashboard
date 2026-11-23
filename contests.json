@@ -1,5 +1,12 @@
 [
   {
+    "source": "Codeforces",
+    "name": "Codeforces Round (Div. 3)",
+    "start": "2026-11-27T14:35+00:00",
+    "duration_min": 135,
+    "url": "https://codeforces.com/contest/2292"
+  },
+  {
     "source": "牛客",
     "name": "牛客练习赛160",
     "start": "2026-11-27T19:00",
@@ -33,6 +40,13 @@
     "start": "2026-12-01T14:30+00:00",
     "duration_min": 10080,
     "url": "https://codeforces.com/contest/2286"
+  },
+  {
+    "source": "牛客",
+    "name": "牛客小白月赛141",
+    "start": "2026-12-04T19:00",
+    "duration_min": 120,
+    "url": "https://ac.nowcoder.com/acm/contest/144700"
   },
   {
     "source": "AtCoder",
