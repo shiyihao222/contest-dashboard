@@ -1,7 +1,7 @@
 [
   {
     "source": "Codeforces",
-    "name": "Codeforces Round (Div. 3)",
+    "name": "Codeforces Round 1138 (Div. 3)",
     "start": "2026-11-27T14:35+00:00",
     "duration_min": 135,
     "url": "https://codeforces.com/contest/2292"
@@ -82,6 +82,13 @@
     "start": "2026-12-13T12:00+00:00",
     "duration_min": 180,
     "url": "https://atcoder.jp/contests/agc080"
+  },
+  {
+    "source": "Codeforces",
+    "name": "Educational Codeforces Round 197 (Rated for Div. 2)",
+    "start": "2026-12-14T14:35+00:00",
+    "duration_min": 120,
+    "url": "https://codeforces.com/contest/2293"
   },
   {
     "source": "AtCoder",
