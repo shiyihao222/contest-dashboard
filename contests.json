@@ -29,6 +29,13 @@
   },
   {
     "source": "牛客",
+    "name": "2026年CCPC新疆维吾尔自治区大学生程序设计竞赛",
+    "start": "2026-11-29T12:00",
+    "duration_min": 300,
+    "url": "https://ac.nowcoder.com/acm/contest/142934"
+  },
+  {
+    "source": "牛客",
     "name": "牛客周赛 Round 172",
     "start": "2026-11-29T19:00",
     "duration_min": 120,
