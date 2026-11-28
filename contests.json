@@ -1,12 +1,5 @@
 [
   {
-    "source": "牛客",
-    "name": "牛客练习赛160",
-    "start": "2026-11-27T19:00",
-    "duration_min": 150,
-    "url": "https://ac.nowcoder.com/acm/contest/143482"
-  },
-  {
     "source": "AtCoder",
     "name": "AtCoder Beginner Contest 486",
     "start": "2026-11-28T12:00+00:00",
